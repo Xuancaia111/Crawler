@@ -19,9 +19,10 @@ var occupationRe=regexp.MustCompile(`<td><span class="label">职业： </span>([
 var hukouRe=regexp.MustCompile(`<td><span class="label">籍贯：</span>([^<]+)</td>`)
 var houseRe=regexp.MustCompile(`<td><span class="label">住房条件：</span><span field="">([^<]+)</span></td>`)
 var carRe=regexp.MustCompile(`<td><span class="label">是否购车：</span><span field="">([^<]+)</span></td>`)
+var idUrlRe=regexp.MustCompile(`http://album.zhenai.com/u/([\d]+)`)
 //var nameRe=regexp.MustCompile(`<a class="name fs24">([^<]+)</a>`)
-
-func ParseProfile(contents []byte, name string) engine.ParserResult {
+var guessRe=regexp.MustCompile(`href="(http://album.zhenai.com/u/[\d]+)">([^<]+)</a>`)
+func ParseProfile(contents []byte, url string, name string) engine.ParserResult {
 	profile := module.Profile{}
 
 	if age, err := strconv.Atoi(extractString(contents,ageRe)); err == nil{
@@ -46,7 +47,22 @@ func ParseProfile(contents []byte, name string) engine.ParserResult {
 	profile.Name = name
 
 	result:=engine.ParserResult{
-		Items: []interface{}{profile},
+		Items: []engine.Item{
+			{
+				Url: url,
+				Type:"zhenai",
+				Id: extractString([]byte(url),idUrlRe),
+				Payload:profile,
+			},
+		},
+	}
+	matches := guessRe.FindAllSubmatch(contents, -1)
+	for _, m := range matches {
+		result.Requests = append(result.Requests,
+			engine.Request{
+				Url: string(m[1]),
+				ParserFunc: ProfileParser(string(m[2])),
+			})
 	}
 	return result
 }
@@ -57,5 +73,11 @@ func extractString(contents []byte, re *regexp.Regexp) string {
 		return string(match[1])
 	} else {
 		return ""
+	}
+}
+
+func ProfileParser(name string) engine.ParserFunc {
+	return func(c []byte,url string) engine.ParserResult{
+		return ParseProfile(c,url,name)
 	}
 }

@@ -1,0 +1,245 @@
+GET http://localhost:9200/dating_profile/zhenai/_search?pretty=&size=100
+Content-Type: application/json
+
+<> 2018-07-06T041037.200.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?pretty=&size=100
+Content-Type: application/json
+
+<> 2018-07-06T030055.200.json
+
+###
+
+GET http://localhost:9200/dating_test/zhenai/_search?pretty=&size=100
+Content-Type: application/json
+
+<> 2018-07-06T025807.200.json
+
+###
+
+GET http://localhost:9200/dating_test/zhenai/_search?pretty=&size=100
+Content-Type: application/json
+
+<> 2018-07-06T025425.200.json
+
+###
+
+GET http://localhost:9200/dating_test/zhenai/_search?pretty=&size=100
+Content-Type: application/json
+
+<> 2018-07-06T024041.200.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?pretty=&size=100
+Content-Type: application/json
+
+<> 2018-07-06T023838.404.json
+
+###
+
+GET http://localhost:9200/dating_test/zhenai/_search?pretty=&size=100
+Content-Type: application/json
+
+<> 2018-07-06T023820.200.json
+
+###
+
+GET http://localhost:9200/dating_test/zhenai/_search?pretty=&size=100
+Content-Type: application/json
+
+<> 2018-07-06T023437.404.json
+
+###
+
+GET http://localhost:9200/dating_test/zhenai/_search?pretty=&size=100
+Content-Type: application/json
+
+<> 2018-07-06T023434.404.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?pretty=&size=100
+Content-Type: application/json
+
+<> 2018-07-06T023402.404.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?pretty=&size=100
+Content-Type: application/json
+
+<> 2018-07-06T022934.200.json
+
+###
+
+GET http://localhost:9200/dating_test/zhenai/_search?pretty=&size=100
+Content-Type: application/json
+
+<> 2018-07-06T022730.200.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?pretty=&size=100
+Content-Type: application/json
+
+<> 2018-07-06T124639.200.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?pretty=&size=100
+Content-Type: application/json
+
+<> 2018-07-06T123507.200.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?pretty=&size=100&q=男&q=已购房&q=已购车&q=Age:(<30)
+Content-Type: application/json
+
+<> 2018-07-05T110737.200.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?pretty=&size=100&q=男 Age:(<30)
+Content-Type: application/json
+
+<> 2018-07-05T110613.200.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?pretty=&size=100&q=男 已购房 Age:(<30)
+Content-Type: application/json
+
+<> 2018-07-05T110542.200.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?pretty=&size=100&q=男 已购房 Age:(<30)
+Content-Type: application/json
+
+<> 2018-07-05T110441.200.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?pretty=&size=100&q=Age:(<30)
+Content-Type: application/json
+
+<> 2018-07-05T110341.200.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?q=男pretty=&size=100
+Content-Type: application/json
+
+<> 2018-07-05T110201.200.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?q=男 已购房 已购车?pretty=&size=100
+Content-Type: application/json
+
+<> 2018-07-05T105938.200.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?pretty=&size=100&q=男 已购房 已购车
+Content-Type: application/json
+
+<> 2018-07-05T105822.200.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?pretty=&size=100&q=男 已购房 已购车
+Content-Type: application/json
+
+<> 2018-07-05T105820.200.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?pretty=&size=100&q=男 已购房 已购车
+Content-Type: application/json
+
+<> 2018-07-05T105819.200.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?pretty=&size=100&q=男 已购房 已购车
+Content-Type: application/json
+
+<> 2018-07-05T105749.200.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?pretty=&size=100&q=男 已购房 已购车
+Content-Type: application/json
+
+<> 2018-07-05T105654.200.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?pretty=&q=男 已购房 已购车&size=100
+Accept: application/json
+
+<> 2018-07-05T105517.200.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?pretty=
+Accept: application/json
+
+<> 2018-07-05T104715.200.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?pretty=
+Accept: application/json
+
+<> 2018-07-05T100258.200.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?pretty=
+Accept: application/json
+
+<> 2018-07-05T095614.200.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?pretty=
+Accept: application/json
+
+<> 2018-07-05T094523.200.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?pretty=
+Accept: application/json
+
+<> 2018-07-05T090822.200.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?pretty=
+Accept: application/json
+
+<> 2018-07-05T090323.200.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search?pretty=
+Accept: application/json
+
+<> 2018-07-05T082103.200.json
+
+###
+
+GET http://localhost:9200/dating_profile/zhenai/_search
+Accept: application/json
+
+<> 2018-07-05T082039.200.json
+
+###
+
