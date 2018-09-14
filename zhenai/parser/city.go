@@ -3,29 +3,30 @@ package parser
 import (
 	"crawler/engine"
 	"regexp"
+	"crawler_contributed/config"
 )
 var(
 	profileRe  = regexp.MustCompile(`<a href="(http://album.zhenai.com/u/[\d]+)"[^>]*>([^<]+)</a>`)
 	cityRe =regexp.MustCompile(`href="(http://www.zhenai.com/zhenghun/[^"]+)"`)
 )
 
-func ParseCity(contents []byte, _ string) engine.ParserResult {
+func ParseCity(contents []byte, _ string) engine.ParseResult {
 	matches := profileRe.FindAllSubmatch(contents, -1)
-	result := engine.ParserResult{}
+	result := engine.ParseResult{}
 	for _, m := range matches {
 		result.Requests = append(result.Requests,
 			engine.Request{
 				Url: string(m[1]),
-				ParserFunc: ProfileParser(string(m[2])),
+				Parser: NewProfileParser(string(m[2])),
 			})
 	}
 
 	cities:=cityRe.FindAllSubmatch(contents,-1)
-	for _,c:=range cities{
+	for _, m :=range cities{
 		result.Requests=append(result.Requests,
 			engine.Request{
-				Url:string(c[1]),
-				ParserFunc: ParseCity,
+				Url:        string(m[1]),
+				Parser: engine.NewFuncParser(ParseCity,config.ParseCity),
 			})
 	}
 	return result

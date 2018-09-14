@@ -3,10 +3,10 @@ package persist
 import (
 	"testing"
 	"crawler/module"
-	"github.com/olivere/elastic"
 	"context"
 	"encoding/json"
 	"crawler/engine"
+	"gopkg.in/olivere/elastic.v5"
 )
 
 func TestSave(t *testing.T) {
@@ -40,7 +40,7 @@ func TestSave(t *testing.T) {
 	if err!=nil{
 		panic(err)
 	}
-	err = save(client,index,expected)
+	err = Save(client,index,expected)
 	if err!=nil{
 		panic(err)
 	}

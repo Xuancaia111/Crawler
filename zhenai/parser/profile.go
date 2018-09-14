@@ -5,6 +5,7 @@ import (
 	"regexp"
 	"strconv"
 	"crawler/module"
+	"crawler_contributed/config"
 )
 
 var ageRe = regexp.MustCompile(`<td><span class="label">年龄：</span>([\d]+)岁</td>`)
@@ -22,7 +23,7 @@ var carRe=regexp.MustCompile(`<td><span class="label">是否购车：</span><spa
 var idUrlRe=regexp.MustCompile(`http://album.zhenai.com/u/([\d]+)`)
 //var nameRe=regexp.MustCompile(`<a class="name fs24">([^<]+)</a>`)
 var guessRe=regexp.MustCompile(`href="(http://album.zhenai.com/u/[\d]+)">([^<]+)</a>`)
-func ParseProfile(contents []byte, url string, name string) engine.ParserResult {
+func ParseProfile(contents []byte, url string, name string) engine.ParseResult {
 	profile := module.Profile{}
 
 	if age, err := strconv.Atoi(extractString(contents,ageRe)); err == nil{
@@ -46,7 +47,7 @@ func ParseProfile(contents []byte, url string, name string) engine.ParserResult 
 	profile.Car = extractString(contents,carRe)
 	profile.Name = name
 
-	result:=engine.ParserResult{
+	result:=engine.ParseResult{
 		Items: []engine.Item{
 			{
 				Url: url,
@@ -61,7 +62,7 @@ func ParseProfile(contents []byte, url string, name string) engine.ParserResult 
 		result.Requests = append(result.Requests,
 			engine.Request{
 				Url: string(m[1]),
-				ParserFunc: ProfileParser(string(m[2])),
+				Parser: NewProfileParser(string(m[2])),
 			})
 	}
 	return result
@@ -76,8 +77,18 @@ func extractString(contents []byte, re *regexp.Regexp) string {
 	}
 }
 
-func ProfileParser(name string) engine.ParserFunc {
-	return func(c []byte,url string) engine.ParserResult{
-		return ParseProfile(c,url,name)
-	}
+type ProfileParser struct {
+	userName string
+}
+
+func (p *ProfileParser) Parse(contents []byte, url string) engine.ParseResult {
+	return ParseProfile(contents, url, p.userName)
+}
+
+func (p *ProfileParser) Serialize() (name string, args interface{}) {
+	return config.ParseProfile, p.userName
+}
+
+func NewProfileParser(name string) *ProfileParser {
+	return &ProfileParser{userName: name}
 }
