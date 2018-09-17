@@ -5,7 +5,7 @@ import (
 	"regexp"
 	"strconv"
 	"crawler/module"
-	"crawler_contributed/config"
+	"crawler/crawler_contributed/config"
 )
 
 var ageRe = regexp.MustCompile(`<td><span class="label">年龄：</span>([\d]+)岁</td>`)

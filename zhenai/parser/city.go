@@ -3,7 +3,7 @@ package parser
 import (
 	"crawler/engine"
 	"regexp"
-	"crawler_contributed/config"
+	"crawler/crawler_contributed/config"
 )
 var(
 	profileRe  = regexp.MustCompile(`<a href="(http://album.zhenai.com/u/[\d]+)"[^>]*>([^<]+)</a>`)

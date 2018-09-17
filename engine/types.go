@@ -1,6 +1,6 @@
 package engine
 
-import "crawler_contributed/config"
+import "crawler/crawler_contributed/config"
 
 type ParserFunc func(contents []byte, url string) ParseResult
 
