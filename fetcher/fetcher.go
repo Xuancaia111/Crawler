@@ -12,7 +12,7 @@ import (
 	"golang.org/x/text/encoding/unicode"
 	"log"
 	"time"
-	"crawler_contributed/config"
+	"crawler/crawler_contributed/config"
 )
 
 var rateLimiter = time.Tick(time.Second/config.Qps)
